@@ -1,0 +1,36 @@
+{
+  "name": "carouseladv",
+  "version": "1.0.0",
+  "description": "Advanced carousel",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve && webpack watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IRONVOLT/carouselAdv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IRONVOLT/carouselAdv/issues"
+  },
+  "homepage": "https://github.com/IRONVOLT/carouselAdv#readme",
+  "devDependencies": {
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.6.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
