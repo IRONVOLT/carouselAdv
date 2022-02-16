@@ -1,8 +1,9 @@
-const coreBobdy = document.querySelector("body");
+import html from "./index.html";
 
-const helloworld = 'hello world'
-const newNode = document.createElement("p");
-newNode.appendChild(helloworld)
-coreBobdy.appendChild(newNode)
+const rootBobdy = document.querySelector("body");
 
-console.log(coreBobdy)
+const helloworld = 'hello world';
+
+rootBobdy.innerHTML = helloworld
+
+console.dir(rootBobdy)
