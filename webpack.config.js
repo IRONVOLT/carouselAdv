@@ -1,25 +1,40 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  devtool: "cheap-module-source-map",
+  entry: path.resolve(__dirname, './src/index.js'),
+
   module: {
     rules: [
-      { test: /\.html$/i, loader: 'html-loader' },
-      { test: /\.svg$/, use: 'svg-inline-loader' },
-      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
-      { test: /\.(js)$/, use: 'babel-loader' }
-    ]
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.css$/i,
+        use:[
+          "style-loader",
+          "css-loader",
+        ]
+      }
+    ],
   },
+
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
+
   plugins: [
     new HtmlWebpackPlugin({
-        template: __dirname + '/src/index.html'
-      })
+      template: path.join(__dirname, './src/index.html'),
+      title: 'Carousel'
+      }),
+    new CleanWebpackPlugin()
   ],
   devServer: {
     static: {
@@ -28,5 +43,5 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-  mode: 'development'
+
 };
