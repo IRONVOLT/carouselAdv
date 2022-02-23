@@ -5,21 +5,52 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  devtool: "cheap-module-source-map",
-  entry: path.resolve(__dirname, './src/index.js'),
+  devtool: 'cheap-module-source-map',
+  entry: path.resolve(__dirname, './src/index.ts'),
 
   module: {
     rules: [
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
       {
         test: /\.css$/i,
         use:[
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
         ]
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        use: 'file-loader'
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-typescript'
+            ]
+          }
+        }
       }
     ],
   },
